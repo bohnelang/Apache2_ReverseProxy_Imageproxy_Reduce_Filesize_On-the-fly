@@ -41,7 +41,7 @@ RewriteRule ^(.*)$  http://localhost:4593/q50/https://www.mycompany.test%{REQUES
 ```
 
 Theses are the workflow steps:
-1. The user asks for an image from web server - e.g.: GET 'https://www.mycompany.test/images/hello.jpg' (IP from outside)
+1. The user asks for an image from web server - e.g.: GET `https://www.mycompany.test/images/hello.jpg` (IP from outside)
    The rule set notice that the request is from outside and redirect this request to imageproxy with setting quality to 50%: 'http://localhost:4593/q50/https://www.mycompany.test/images/hello.jpg'
 2. Imageproxy takes URL from paramater list and request image again: 'https://www.mycompany.test/images/hello.jpg' (from localhost). Now the request is passed to the web server directory.
 
