@@ -1,4 +1,4 @@
-# On-the-fly image converting, file size reduction and caching by apache2 
+# On-the-fly image converting, file size reduction and caching by apache2 reverse proxy
 
 By reducing image quality one can reduce image size enormously. When using a content management system there is 
 the disadventage that users often can upload images from camera or smartphone with original size directly.  
