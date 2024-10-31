@@ -8,10 +8,7 @@ To save mobile bandwith you can reduce image file size by shrinking image qualit
 
 For this porpos you can use the imageproxy https://github.com/willnorris/imageproxy (written in go) that runs as a standalone application on linux. The imageproxy is cabable of interacting with apache2 by url encoded paramters.
 
-The imageproxy runs on localhost and takes its paramter by url: imageproxy URLs are of the form 
-```
-http://localhost:4593/{options}/{remote_url}'
-```
+The imageproxy runs on localhost and takes its paramter by url: imageproxy URLs are of the form `http://localhost:4593/{options}/{remote_url}`
 
 The imageproxy cames as a linux service:
 ```
@@ -42,8 +39,8 @@ RewriteRule ^(.*)$  http://localhost:4593/q50/https://www.mycompany.test%{REQUES
 
 Theses are the workflow steps:
 1. The user asks for an image from web server - e.g.: GET `https://www.mycompany.test/images/hello.jpg` (IP from outside)
-   The rule set notice that the request is from outside and redirect this request to imageproxy with setting quality to 50%: 'http://localhost:4593/q50/https://www.mycompany.test/images/hello.jpg'
-2. Imageproxy takes URL from paramater list and request image again: 'https://www.mycompany.test/images/hello.jpg' (from localhost). Now the request is passed to the web server directory.
+   The rule set notice that the request is from outside and redirect this request to imageproxy with setting quality to 50%: `http://localhost:4593/q50/https://www.mycompany.test/images/hello.jpg`
+2. Imageproxy takes URL from paramater list and request image again: `https://www.mycompany.test/images/hello.jpg` (from localhost). Now the request is passed to the web server directory.
 
 3. Imageproxy gets image (step 2), converts it and answers the processed image to the user (step 2). 
 
