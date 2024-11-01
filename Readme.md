@@ -50,9 +50,12 @@ RewriteCond %{REMOTE_ADDR}      !^127\.0\.0\.1$
 RewriteCond %{HTTP_USER_AGENT} (android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge\ |maemo|midp|mmp|mobile.+firefox|netfront|opera\ m(ob|in)i|palm(\ os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows\ ce|xda|xiino                             [NC]
 RewriteRule ^(.*)$  http://localhost:4593/q50/https://www.mycompany.test%{REQUEST_URI} [P,L]
 
+[...]
 # If this is a reverse proxy only then you do have a second forward otherwise the image is in document root 
-RewriteRule ^/images/(.*)$   https://images.mycompany.test/images/$1 [P,L]
-
+# RewriteRule ^/images/(.*)$   https://images.mycompany.test/images/$1 [P,L]
+# OR
+# RewriteCond %{REQUEST_URI}      ^(.*)\.(jpg|gif|png)$   [NC]
+# RewriteRule ^(.*)$   https://images.mycompany.test/$1 [P,L]
 
 ```
 
