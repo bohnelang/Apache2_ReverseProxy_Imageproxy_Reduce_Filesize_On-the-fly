@@ -8,6 +8,8 @@ To save mobile bandwith you can reduce image file size by shrinking image qualit
 
 For this porpos you can use the imageproxy https://github.com/willnorris/imageproxy (written in go) that runs as a standalone application on linux. The imageproxy is cabable of interacting with apache2 by url encoded paramters.
 ```
+           www.mycompany.test
+
              +------------+   
              |   Reverse  +--------------- backend webserver 1
 User  >------+    Proxy   + 
