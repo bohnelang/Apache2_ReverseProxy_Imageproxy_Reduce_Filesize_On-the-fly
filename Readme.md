@@ -34,6 +34,25 @@ The imageproxy cames as a linux service:
 # /usr/local/go/src/willnorris.com/go/imageproxy/etc/imageproxy.service
 ```
 
+I am using this service file:
+```
+# This is the systemd config I use for https://willnorris.com/api/imageproxy/
+[Unit]
+Description=Image Proxy
+
+[Service]
+User=www-data
+ExecStart=/usr/local/go/bin/imageproxy -addr localhost:4593 -cache memory:2000:72h -cache directory /var/spool/imageproxy  -baseURL https://www.mycompany.test/
+Restart=on-abort
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=imageproxy
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
 The workflow to control image size is defined by some apache2 rewrite rule:
 ```
 If a image ends with the suffix .jpg, .gif or .png  
