@@ -23,7 +23,8 @@ User  >------+    Proxy   +
              +------------+   
 ```
 
-The imageproxy runs on localhost and takes its paramter by url: imageproxy URLs are of the form `http://localhost:4593/{options}/{remote_url}`
+The imageproxy runs on localhost and takes its paramter by url: imageproxy URLs are of the form:
+`http://localhost:4593/{options}/{remote_url}`
 
 The imageproxy cames as a linux service:
 ```
