@@ -39,6 +39,11 @@ I am using this service file:
 # This is the systemd config I use for https://willnorris.com/api/imageproxy/
 [Unit]
 Description=Image Proxy
+Documentation=https://github.com/willnorris/imageproxy
+PartOf=Network.target
+After=local-fs.target  network-online.target
+Wants = network-online.target
+
 
 [Service]
 User=www-data
@@ -50,6 +55,7 @@ SyslogIdentifier=imageproxy
 
 [Install]
 WantedBy=multi-user.target
+Alias=imageproxy.service
 ```
 
 
